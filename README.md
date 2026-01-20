@@ -1,23 +1,38 @@
 # 1977
 
-1977 é um jogo de suspense e puzzle inspirado na Operação Prato, um dos maiores casos ufológicos do Brasil, ocorrido no final da década de 1970.
+🎮 Jogo de suspense e puzzle inspirado na Operação Prato, um dos maiores casos ufológicos do Brasil.
 
-## 🎮 Sobre o jogo
-O jogador controla Álvaro, um cientista militar que acorda em um ambiente desconhecido e precisa escapar enquanto é perseguido por uma misteriosa entidade luminosa.
+## 📖 Sobre o jogo
+1977 é um jogo de escape room com forte foco em atmosfera, mistério e sobrevivência.
+O jogador controla Álvaro, um cientista militar que precisa escapar de um ambiente hostil
+enquanto é perseguido por uma misteriosa entidade luminosa.
 
-O jogo possui mecânicas de:
+## 🧩 Principais mecânicas
 - Exploração
 - Escape room
 - Resolução de quebra-cabeças
 - Armadilhas e inimigos
+- Progressão por cartões de acesso
 
-## 🛠️ Tecnologias
+## 🛠️ Tecnologias utilizadas
 - Engine: Godot 4.3
 - Linguagem: GDScript
-- Arte: Pixel Art (16x16)
+- Estilo visual: Pixel Art (16x16)
 
 ## 🎯 Público-alvo
-Maiores de 16 anos, interessados em mistério, suspense e temas sobrenaturais.
+Maiores de 16 anos, fãs de suspense, mistério e temas sobrenaturais.
 
-## 📚 Contexto
-Projeto desenvolvido como trabalho acadêmico para a disciplina de Jogos Digitais, baseado no GDD do jogo 1977.
+## 🎓 Contexto acadêmico
+Projeto desenvolvido como trabalho da disciplina de Jogos Digitais.
+
+## 📷 Screenshots
+*(adicione imagens da pasta screenshots aqui)*
+
+## ▶️ Vídeo
+Trailer ou gameplay disponível em:
+👉 https://itch.io (link aqui)
+
+## ⚠️ Direitos autorais
+© 2025 Sabrina Caetano Fontes.  
+Todos os direitos reservados.
+Este repositório é apenas para apresentação do projeto.
