@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqxx74bm4lnl"]
+
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_ad3u8"]
+[ext_resource type="Texture2D" uid="uid://bi01rwdn4mk0t" path="res://Assets/icons/background.png" id="2_wkosw"]
+[ext_resource type="Texture2D" uid="uid://cwqs2j7o6q2ra" path="res://Assets/font/titulo_jogo.png" id="3_3b78a"]
+[ext_resource type="Theme" uid="uid://c8s15f7utpo8x" path="res://Prefabs/deaful_button.tres" id="4_j4qc7"]
+[ext_resource type="AudioStream" uid="uid://cwnqywo2rp427" path="res://Assets/Free Horror Music Pack/favoritos/1. Behind the Curtains.wav" id="5_2uiox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ty72s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmloa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsam2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlfgc"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ad3u8")
+
+[node name="bg2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -809.0
+offset_top = -538.0
+offset_right = 791.5
+offset_bottom = 335.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_wkosw")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="bg2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = -238.5
+offset_right = 144.5
+offset_bottom = 238.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_bottom = 20
+
+[node name="BoxContainer" type="HBoxContainer" parent="bg2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg2/MarginContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="game_logo" type="TextureRect" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("3_3b78a")
+
+[node name="HSeparator5" type="HSeparator" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ty72s")
+
+[node name="HSeparator" type="HSeparator" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ty72s")
+
+[node name="start_btn" type="Button" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_j4qc7")
+text = "START"
+
+[node name="HSeparator2" type="HSeparator" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vmloa")
+
+[node name="credits_btn" type="Button" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_j4qc7")
+text = "CREDITS"
+
+[node name="HSeparator3" type="HSeparator" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_qsam2")
+
+[node name="controles_btn" type="Button" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_j4qc7")
+text = "CONTROLES"
+
+[node name="HSeparator4" type="HSeparator" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_qlfgc")
+
+[node name="sair_btn" type="Button" parent="bg2/MarginContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_j4qc7")
+text = "SAIR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2uiox")
+autoplay = true
+
+[connection signal="pressed" from="bg2/MarginContainer/BoxContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="bg2/MarginContainer/BoxContainer/VBoxContainer/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="bg2/MarginContainer/BoxContainer/VBoxContainer/controles_btn" to="." method="_on_controles_btn_pressed"]
+[connection signal="pressed" from="bg2/MarginContainer/BoxContainer/VBoxContainer/sair_btn" to="." method="_on_sair_btn_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

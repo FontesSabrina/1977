@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgwjk5jgiwp1b"]
+
+[ext_resource type="Script" path="res://Scripts/controles.gd" id="1_xyaft"]
+[ext_resource type="Texture2D" uid="uid://bi01rwdn4mk0t" path="res://Assets/icons/background.png" id="2_lntdw"]
+[ext_resource type="Texture2D" uid="uid://cu2l8pqkvhvvk" path="res://Assets/MV Icons Keyboard/Individual Icons/keyboard_171.png" id="3_ikwpj"]
+[ext_resource type="Texture2D" uid="uid://bsyiilf4csur4" path="res://Assets/MV Icons Keyboard/Individual Icons/keyboard_172.png" id="4_dxpn4"]
+[ext_resource type="Texture2D" uid="uid://dot6cdcbspywl" path="res://Assets/MV Icons Keyboard/Individual Icons/keyboard_174.png" id="5_vt5ox"]
+[ext_resource type="Texture2D" uid="uid://m42i07vbrxsl" path="res://Assets/MV Icons Keyboard/Individual Icons/keyboard_173.png" id="6_orspw"]
+[ext_resource type="Texture2D" uid="uid://bn33ciwj840hu" path="res://Assets/font/text37.png" id="8_bp6or"]
+[ext_resource type="AudioStream" uid="uid://cwnqywo2rp427" path="res://Assets/Free Horror Music Pack/favoritos/1. Behind the Curtains.wav" id="9_p22d2"]
+[ext_resource type="Theme" uid="uid://c8s15f7utpo8x" path="res://Prefabs/deaful_button.tres" id="10_yo76f"]
+
+[node name="controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -5.0
+offset_right = -19.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xyaft")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = -441.0
+offset_right = 867.0
+offset_bottom = 428.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_lntdw")
+expand_mode = 3
+
+[node name="cima" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 224.0
+offset_right = 615.0
+offset_bottom = 293.0
+texture = ExtResource("3_ikwpj")
+
+[node name="baixo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 306.0
+offset_right = 615.0
+offset_bottom = 375.0
+texture = ExtResource("4_dxpn4")
+
+[node name="esquerda" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 306.0
+offset_right = 531.0
+offset_bottom = 375.0
+texture = ExtResource("5_vt5ox")
+
+[node name="direita" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 630.0
+offset_top = 306.0
+offset_right = 699.0
+offset_bottom = 375.0
+texture = ExtResource("6_orspw")
+
+[node name="texto" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 439.0
+offset_right = 876.0
+offset_bottom = 480.0
+texture = ExtResource("8_bp6or")
+
+[node name="voltar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 118.0
+offset_right = 229.0
+offset_bottom = 147.0
+theme = ExtResource("10_yo76f")
+text = "VOLTAR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_p22d2")
+autoplay = true
+
+[connection signal="pressed" from="voltar" to="." method="_on_voltar_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

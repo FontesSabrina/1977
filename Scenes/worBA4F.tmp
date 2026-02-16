@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://btunmgmexuspy"]
+
+[ext_resource type="PackedScene" uid="uid://dnoqtu01cj7qx" path="res://Prefabs/level_1.tscn" id="1_f2c1v"]
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_yiimg"]
+[ext_resource type="PackedScene" uid="uid://ld8q7r5tw7ln" path="res://Prefabs/player.tscn" id="2_8iiw2"]
+[ext_resource type="Texture2D" uid="uid://bwj6gjbd3s0k" path="res://Assets/icons/life.png" id="2_fg2ik"]
+[ext_resource type="Script" path="res://Scripts/hud_manage.gd" id="2_pnw31"]
+[ext_resource type="FontFile" uid="uid://cxt6ficgjm0fj" path="res://Assets/fonte/NotJamSciMono13.ttf" id="3_d4b2e"]
+[ext_resource type="PackedScene" uid="uid://rv7pxfy4ffo2" path="res://Prefabs/key.tscn" id="7_e5rr6"]
+
+[node name="world" type="Node2D"]
+light_mask = 0
+script = ExtResource("1_yiimg")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.419813, 0.419813, 0.419813, 1)
+energy = 0.5
+blend_mode = 2
+
+[node name="level1" parent="." instance=ExtResource("1_f2c1v")]
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="player" parent="." instance=ExtResource("2_8iiw2")]
+position = Vector2(172, 72)
+SPEED = null
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_pnw31")
+default_minutes = 10
+
+[node name="clock_timer" type="Timer" parent="HUD/control"]
+
+[node name="container" type="MarginContainer" parent="HUD/control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="life_cpntainer" type="HBoxContainer" parent="HUD/control/container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="life_icon" type="TextureRect" parent="HUD/control/container/life_cpntainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_fg2ik")
+
+[node name="life_couter" type="Label" parent="HUD/control/container/life_cpntainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_d4b2e")
+theme_override_font_sizes/font_size = 23
+text = "x 03"
+
+[node name="time_container" type="HBoxContainer" parent="HUD/control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_right = 70.0
+offset_bottom = 24.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="time_label" type="Label" parent="HUD/control/time_container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_d4b2e")
+theme_override_font_sizes/font_size = 23
+text = " Time :"
+
+[node name="time_couter" type="Label" parent="HUD/control/time_container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_d4b2e")
+theme_override_font_sizes/font_size = 23
+text = " 00:00"
+
+[node name="Area2D" parent="." instance=ExtResource("7_e5rr6")]
+position = Vector2(224, 78)
+
+[connection signal="timeout" from="HUD/control/clock_timer" to="HUD/control" method="_on_clock_timer_timeout"]
